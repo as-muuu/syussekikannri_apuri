@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザー一覧</title>
+</head>
+<body>
+    <h1>職員一覧</h1>
+    <table border="1">
+        <tr>
+            <th>登録日時</th><th>ユーザーID</th><th>パスワード</th><th>氏名</th>
+            <th>性別</th><th>電話番号</th><th>住所</th><th>緊急連絡先</th>
+        </tr>
+        {% for row in staff_users %}
+        <tr>
+            {% for col in row %}
+            <td>{{ col }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>利用者一覧</h1>
+    <table border="1">
+        <tr>
+            <th>登録日時</th><th>ユーザーID</th><th>パスワード</th><th>氏名</th>
+            <th>性別</th><th>電話番号</th><th>住所</th><th>緊急連絡先</th>
+        </tr>
+        {% for row in regular_users %}
+        <tr>
+            {% for col in row %}
+            <td>{{ col }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="/admin">← 管理画面に戻る</a></p>
+</body>
+</html>
