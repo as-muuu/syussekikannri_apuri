@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>連絡フォーム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
+    {% include "header.html" %}<!-- 共通のヘッダーを用意 -->
+    
     <h1>{{ greeting }} {{ now }}</h1>
-    <h2>連絡フォーム</h2>
+
     <form action="/submit" method="post">
+        <h2 class="form-title">連絡フォーム</h2>
         <label for="user_name">お名前:</label><br>
         <input type="text" name="user_name" required placeholder="例：山田 太郎"><br><br>
 
         <!-- 🔽 日付入力フィールドを追加 -->
-    <label for="date">対象の日付:</label><br>
-    <input type="date" name="date" required><br><br>
+        <label for="date">対象の日付:</label><br>
+        <input type="date" name="date" required><br><br>
 
         <label for="reason">理由:</label><br>
         <select name="reason" required>
@@ -27,8 +33,11 @@
         <p>（例）<br>・電車が遅延しているので到着は10時頃です。<br>・熱があるので病院に行きます。<br>・事前連絡、●月●日は家の用事で休みます。<br>など…</p>
         <textarea name="detail" rows="4" cols="40" placeholder="詳細を入力してください"></textarea><br><br>
 
-        <button type="submit">送信</button>
+        <div class="button-wrapper">
+            <button type="submit">送信</button>
+        </div>
     </form>
     <p><a href="/admin">管理者はこちら</a></p>
 </body>
+
 </html>
