@@ -4,8 +4,11 @@
             <img src="{{ url_for('static', filename='img/logo.png') }}" alt="ロゴ" class="logo">
         </div>
         <div class="header-right">
+            {% block header_links %}
+            <!-- デフォルトのリンク -->
             <a href="/admin">管理者はこちらへ</a>
-            <a href="/">ホームページはこちらへ</a>
+            <a href="">ホームページはこちらへ</a>
+            {% endblock %}
         </div>
     </div>
     <div class="orange-bar"></div>

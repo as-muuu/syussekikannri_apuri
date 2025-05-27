@@ -1,21 +1,46 @@
-<h2>新規ユーザー登録</h2>
+{% extends "base.html" %}
+
+{% block title %}新規ユーザー登録{% endblock %}
+
+{% block header_links %}
+<a href="/admin">管理トップ</a>
+<a href="/users">ユーザー一覧</a>
+<a href="/logout">ログアウト</a>
+{% endblock %}
+
+{% block content %}
+<h2 class="form-title">新規ユーザー登録</h2>
+
 <form method="post">
-  <label>ユーザーID: <input type="text" name="user_id" required></label><br>
-  <label>パスワード: <input type="password" name="password" required></label><br>
-  <label>名前: <input type="text" name="name" required></label><br>
-  <label>性別:
-    <select name="gender" required>
-      <option value="">選択してください</option>
-      <option value="男性">男性</option>
-      <option value="女性">女性</option>
-      <option value="その他">その他</option>
+    <label for="user_id">ユーザーID:</label>
+    <input type="text" id="user_id" name="user_id" required>
+
+    <label for="password">パスワード:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="name">名前:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="gender">性別:</label>
+    <select id="gender" name="gender" required>
+        <option value="">選択してください</option>
+        <option value="男性">男性</option>
+        <option value="女性">女性</option>
+        <option value="その他">その他</option>
     </select>
-  </label><br>
-  <label>電話番号: <input type="tel" name="phone" required></label><br>
-  <label>住所: <input type="text" name="address" required></label><br>
-  <label>緊急連絡先: <input type="text" name="emergency" required></label><br>
-  <button type="submit">登録する</button>
 
-  <p><a href="/admin">← 管理画面に戻る</a></p>
+    <label for="phone">電話番号:</label>
+    <input type="tel" id="phone" name="phone" required>
 
+    <label for="address">住所:</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="emergency">緊急連絡先:</label>
+    <input type="text" id="emergency" name="emergency" required>
+
+    <div class="button-wrapper">
+        <button type="submit">登録する</button>
+    </div>
 </form>
+
+{% endblock %}

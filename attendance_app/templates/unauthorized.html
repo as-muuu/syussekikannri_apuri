@@ -1,27 +1,28 @@
-<!-- 管理画面へのアクセスを拒否 自動リダイレクトページ -->
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>アクセス拒否</title>
-    <meta http-equiv="refresh" content="5; url={{ url_for('index') }}">
-    
-    <!-- カウントダウンをしてくれるjs -->
-   <script>
-        let seconds = 5;
-        function countdown() {
-            if (seconds > 0) {
-                document.getElementById("count").textContent = seconds;
-                seconds--;
-                setTimeout(countdown, 1000);
-            }
+{% extends "base.html" %}
+
+{% block title %}アクセス拒否{% endblock %}
+
+{% block header_links %}
+<a href="/">トップページへ</a>
+{% endblock %}
+
+{% block content %}
+<!-- 自動リダイレクト（5秒） -->
+<meta http-equiv="refresh" content="5; url={{ url_for('index') }}">
+
+<!-- カウントダウンJS -->
+<script>
+    let seconds = 5;
+    function countdown() {
+        if (seconds > 0) {
+            document.getElementById("count").textContent = seconds;
+            seconds--;
+            setTimeout(countdown, 1000);
         }
-        window.onload = countdown;
-    </script>
-    
-</head>
-<body>
-    <h1>アクセス権限がありません</h1>
-    <p><span id="count">5</span> 秒後にトップページへ戻ります。</p>
-</body>
-</html>
+    }
+    window.onload = countdown;
+</script>
+
+<h2 class="form-title">アクセス権限がありません</h2>
+<p><span id="count">5</span> 秒後にトップページへ戻ります。</p>
+{% endblock %}

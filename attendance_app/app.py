@@ -64,7 +64,8 @@ def login():
                 for row in reader:
                     if len(row) >= 3:
                         _, user_id, user_pass = row[:3]
-                        if username == user_id and password == user_pass:
+                        # ✅ Zで始まるユーザーのみログインを許可
+                        if username == user_id and password == user_pass and user_id.startswith('Z'):
                             session.permanent = False
                             session['logged_in'] = True
                             session['user_id'] = user_id

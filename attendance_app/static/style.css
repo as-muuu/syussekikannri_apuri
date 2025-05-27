@@ -4,9 +4,10 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #ff8b20;
     margin: 0;
-    padding: 40px;
+    padding: 0px 40px 40px 40px;  
     color: #333;
 }
+
 
 h1, h2 {
     text-align: center;
@@ -14,9 +15,9 @@ h1, h2 {
 }
 
 form {
-    max-width: 600px;
+    max-width: 800px;
     margin: auto;
-    padding: 30px;
+    padding: 50px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -24,36 +25,78 @@ form {
 
 label {
     display: block;
-    margin-top: 15px;
+    width: 73%;               /* 👈 入力欄と同じ幅に */
+    margin: 20px auto 0px;    👈 上下余白あり＆中央寄せ
     font-weight: bold;
 }
 
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 入力フォーム全体のデザイン（オレンジ調） */
 input[type="text"],
 input[type="date"],
 input[type="tel"],
+input[type="password"], 
 textarea,
 select {
-    width: 100%;
+    width: 75%;                 /* 👈 横幅を少し狭く（お好みで80%〜90%） */
+    display: block;
+    margin: 10px auto;           /* 👈 自動で中央寄せ */
     padding: 10px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    border-radius: 20px;
+    border: 2px solid #ff8b20;
+    background-color: #fff2e6;
+    font-size: 14px;
+    color: #333;
     box-sizing: border-box;
 }
+
+
+/* セレクトボックスの矢印デザインを強調 */
+select {
+    appearance: none;               /* デフォルトの矢印を消す（Chromeなど） */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 12,0 6,6' fill='%23ff8b20'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px;
+}
+
+/* プレースホルダ文字の色（必要なら） */
+input::placeholder,
+textarea::placeholder {
+    color: #999;
+}
+
+/* フォーカス時の強調 */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #f57c00;
+    box-shadow: 0 0 4px #f57c00;
+}
+/* 説明文 */
+.form-note {
+    width: 73%;
+    margin: 10px auto;
+    font-size: 14px;
+    color: #8b8b8b;
+}
+
 
 button {
     margin-top: 25px;
     padding: 12px 30px;
-    background-color: #1976d2;
+    background-color: #f57c00;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
 }
 
 button:hover {
-    background-color: #1565c0;
+    background-color: #e57a1a; /* 少し濃いオレンジでホバー効果 */
 }
 
 a {
@@ -64,6 +107,7 @@ a {
     text-decoration: none;
 }
 .form-title {
+    font-family: 'Arial', sans-serif;
     text-align: center;
     font-size: 24px;
     margin-top: 0;
@@ -74,13 +118,28 @@ a {
     text-align: center;
     margin-top: 20px;
 }
+button {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: #ff8b20;  /* 👈 オレンジ色に変更 */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #e57a1a; /* 👈 少し濃いオレンジでホバー効果 */
+}
+
 
 /* ヘッダーのデザイン============================================================ */
 .custom-header {
-    background-color: white;
-    border-radius: 12px;    
-
-
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px 0px 12px 12px;
+    
+    
 }
 
 .header-container {
@@ -88,6 +147,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
+    
 }
 
 .header-left {
@@ -96,8 +156,9 @@ a {
 }
 
 .logo {
-    height: 30px;
-    margin-right: 10px;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 10px; /* ロゴの位置を調整 */
 }
 
 .site-title {
@@ -106,8 +167,13 @@ a {
     color: #333;
 }
 
+.header-right {
+    display: flex;            /* 横並びにする */
+    gap: 20px;                /* リンクの間に隙間 */
+    align-items: center;
+}
+
 .header-right a {
-    margin-left: 20px;
     text-decoration: none;
     color: #333;
     font-weight: bold;
@@ -115,8 +181,8 @@ a {
 
 .header-right a:hover {
     color: #f57c00;
-    text-decoration: underline;
 }
+
 
 .orange-bar {
     height: 10px;
@@ -124,3 +190,45 @@ a {
 }
 
 /* ヘッダーのデザインここまで============================================================ */
+
+/* 時間の吹き出しデザイン============================================================ */
+.greeting-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 80px;
+}
+
+.character-img {
+    height: 70px;
+}
+
+/* 吹き出し本体 */
+.speech-bubble {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    max-width: 90%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: normal;
+}
+
+/* 🔽 吹き出しの三角部分（とんがらせる） */
+.speech-bubble::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 12px solid white; /* ← 白い三角形が左に向かって伸びる */
+    transform: rotate(30deg); /* ← 🔺角度を斜めに傾ける */
+}
+
+/* 時間の吹き出しデザイン============================================================ */

@@ -1,43 +1,50 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>連絡フォーム</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% block title %}連絡フォーム{% endblock %}
 
-<body>
-    {% include "header.html" %}<!-- 共通のヘッダーを用意 -->
-    
-    <h1>{{ greeting }} {{ now }}</h1>
+{% block header_links %}
+<a href="https://www.jobridge.info/">ホームページ</a>
+<a href="/login">管理者はこちら</a>
+{% endblock %}
 
-    <form action="/submit" method="post">
-        <h2 class="form-title">連絡フォーム</h2>
-        <label for="user_name">お名前:</label><br>
-        <input type="text" name="user_name" required placeholder="例：山田 太郎"><br><br>
+{% block content %}
+<!-- 時間の吹き出しの部分 -->
+<div class="greeting-container">
+    <img src="{{ url_for('static', filename='img/character.png') }}" class="character-img">
+    <div class="speech-bubble">
+        {{ greeting }}　{{ now }}
+    </div>
+</div>
+<!-- ここまで -->
 
-        <!-- 🔽 日付入力フィールドを追加 -->
-        <label for="date">対象の日付:</label><br>
-        <input type="date" name="date" required><br><br>
+<form action="/submit" method="post">
+    <h2 class="form-title">連絡フォーム</h2>
 
-        <label for="reason">理由:</label><br>
-        <select name="reason" required>
-            <option value="">選択してください</option>
-            <option value="お休みします">お休みします</option>
-            <option value="遅れて行きます">遅れて行きます</option>
-            <option value="その他">その他</option>
-        </select><br><br>
+    <label for="user_name">お名前:</label><br>
+    <input type="text" name="user_name" required placeholder="例：山田 太郎"><br><br>
 
-        <label for="detail">詳細:</label><br>
-        <p>（例）<br>・電車が遅延しているので到着は10時頃です。<br>・熱があるので病院に行きます。<br>・事前連絡、●月●日は家の用事で休みます。<br>など…</p>
-        <textarea name="detail" rows="4" cols="40" placeholder="詳細を入力してください"></textarea><br><br>
+    <label for="date">対象の日付:</label><br>
+    <input type="date" name="date" required><br><br>
 
-        <div class="button-wrapper">
-            <button type="submit">送信</button>
-        </div>
-    </form>
-    <p><a href="/admin">管理者はこちら</a></p>
-</body>
+    <label for="reason">理由:</label><br>
+    <select name="reason" required>
+        <option value="">選択してください</option>
+        <option value="お休みします">お休みします</option>
+        <option value="遅れて行きます">遅れて行きます</option>
+        <option value="その他">その他</option>
+    </select><br><br>
 
-</html>
+    <label for="detail">詳細:</label><br>
+    <p class="form-note">（例）<br>
+        ・電車が遅延しているので到着は10時頃です。<br>
+        ・熱があるので病院に行きます。<br>
+        ・事前連絡、●月●日は家の用事で休みます。など…
+    </p>
+    <textarea name="detail" rows="4" cols="40" placeholder="詳細を入力してください"></textarea><br><br>
+
+    <div class="button-wrapper">
+        <button type="submit">送信</button>
+    </div>
+</form>
+
+{% endblock %}

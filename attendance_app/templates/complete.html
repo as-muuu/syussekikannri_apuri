@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>送信完了</title>
-</head>
-<body>
-    <h2>送信が完了しました！</h2>
-    <p><a href="/">ホーム画面へもどる</a></p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}送信完了{% endblock %}
+
+{% block header_links %}
+<a href="/">トップページへ</a>
+
+{% endblock %}
+
+{% block content %}
+<h2 class="form-title">送信が完了しました！</h2>
+
+{% endblock %}

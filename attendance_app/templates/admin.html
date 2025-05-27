@@ -1,37 +1,33 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    
-    <title>管理者画面</title>
-</head>
-<body>
-    <h2>出欠・遅刻連絡一覧</h2>
-     <p>ログイン中：{{ session['user_id'] }}</p>
-    <table border="1">
-        <tr>
-            <th>送信時間</th>
-            <th>対象日時</th>
-            <th>名前</th>
-            <th>理由</th>
-            <th>詳細</th>
-        </tr>
-        {% for record in records %}
-        <tr>
-            <td>{{ record[0] }}</td>
-            <td>{{ record[1] }}</td>
-            <td>{{ record[2] }}</td>
-            <td>{{ record[3] }}</td>
-            <td>{{ record[4] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <p><a href="{{ url_for('register') }}">新規ユーザー登録</a></p>
-    <p><a href="/users">ユーザー一覧ページ</a></p>
-    <p><a href="{{ url_for('logout') }}">ログアウト</a></p>
+{% extends "base.html" %}
 
+{% block title %}管理者画面{% endblock %}
 
-</body>
-</html>
+{% block header_links %}
+<a href="/users">ユーザー一覧</a>
+<a href="/register">ユーザー登録</a>
+<a href="/logout">ログアウト</a>
+{% endblock %}
 
+{% block content %}
+<h2>出欠・遅刻連絡一覧</h2>
+<p>ログイン中：{{ session['user_id'] }}</p>
 
+<table border="1">
+    <tr>
+        <th>送信時間</th>
+        <th>対象日時</th>
+        <th>名前</th>
+        <th>理由</th>
+        <th>詳細</th>
+    </tr>
+    {% for record in records %}
+    <tr>
+        <td>{{ record[0] }}</td>
+        <td>{{ record[1] }}</td>
+        <td>{{ record[2] }}</td>
+        <td>{{ record[3] }}</td>
+        <td>{{ record[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

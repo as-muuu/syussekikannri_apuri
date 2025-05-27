@@ -1,0 +1,35 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}出欠連絡アプリ{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ✅ 共通ヘッダー -->
+<header class="custom-header">
+    <div class="header-container">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="ロゴ" class="logo">
+        </div>
+        <div class="header-right">
+            {% block header_links %}
+            <!-- デフォルトリンク（何も指定されなかったとき） -->
+            <a href="/">トップへ</a>
+            <a href="/login">ログイン</a>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="orange-bar"></div>
+</header>
+
+<!-- ✅ ページごとの内容 -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>
