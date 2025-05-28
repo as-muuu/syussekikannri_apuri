@@ -9,7 +9,13 @@
 {% endblock %}
 
 {% block content %}
-<h2 class="form-title">新規ユーザー登録</h2>
+<div class="greeting-container2">
+    <img src="{{ url_for('static', filename='img/character2.png') }}" class="character2-img">
+    <div class="speech-bubble2">
+        新規ユーザー登録
+    </div>
+</div>
+
 
 <form method="post">
     <label for="user_id">ユーザーID:</label>

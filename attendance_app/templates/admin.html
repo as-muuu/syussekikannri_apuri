@@ -9,10 +9,18 @@
 {% endblock %}
 
 {% block content %}
-<h2>出欠・遅刻連絡一覧</h2>
+<!-- タイトルの吹き出しの部分 -->
+<div class="greeting-container2">
+    <img src="{{ url_for('static', filename='img/character2.png') }}" class="character2-img">
+    <div class="speech-bubble2">
+        出欠・遅刻連絡一覧
+    </div>
+</div>
+<!-- ここまで -->
+<div class="table-card">
 <p>ログイン中：{{ session['user_id'] }}</p>
 
-<table border="1">
+<table>
     <tr>
         <th>送信時間</th>
         <th>対象日時</th>
@@ -30,4 +38,5 @@
     </tr>
     {% endfor %}
 </table>
+</div>
 {% endblock %}

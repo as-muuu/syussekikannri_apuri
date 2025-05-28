@@ -1,13 +1,15 @@
 {% extends "base.html" %}
+{% set hide_header = True %}
 
 {% block title %}送信完了{% endblock %}
 
-{% block header_links %}
-<a href="/">トップページへ</a>
-
-{% endblock %}
+{% block header_links %}{% endblock %}
 
 {% block content %}
-<h2 class="form-title">送信が完了しました！</h2>
-
+<div class="table-card2">
+     <!-- ✅ 画像を上に追加 -->
+    <img src="{{ url_for('static', filename='img/sousin.png') }}" alt="完了アイコン" class="complete-icon">
+    <h2 class="form-title">送信完了！</h2>
+    <a href="/">トップページへ</a>
+</div>
 {% endblock %}

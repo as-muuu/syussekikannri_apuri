@@ -232,3 +232,96 @@ button:hover {
 }
 
 /* 時間の吹き出しデザイン============================================================ */
+
+/* タイトルの吹き出しデザイン============================================================ */
+.greeting-container2 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 80px;
+}
+
+.character2-img {
+    height: 70px;
+}
+
+/* 吹き出し本体 */
+.speech-bubble2 {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    max-width: 90%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: normal;
+}
+
+/* 🔽 吹き出しの三角部分（とんがらせる） */
+.speech-bubble2::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 12px solid white; /* ← 白い三角形が左に向かって伸びる */
+    transform: rotate(30deg); /* ← 🔺角度を斜めに傾ける */
+}
+
+/* タイトルの吹き出しデザイン============================================================ */
+
+.table-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0px auto 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.table-card2 {
+    background-color: white;
+    padding: 150px 100px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 350px;
+    margin: 200px auto;  /* 👈 これで中央寄せ！ */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;  /* テキストも中央にしたい場合 */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: #333;
+}
+
+th {
+    text-align: left;
+    padding: 14px 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #ff8b20;
+}
+
+td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #ff8b20;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+/* 送信完了の画像調整 */
+.complete-icon {
+    width: 120px;
+    height: 80px;
+    display: block;
+    margin: 0 auto 20px;
+}
+

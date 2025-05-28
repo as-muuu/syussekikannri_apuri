@@ -7,7 +7,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>管理者ログイン</h1>
+<div class="greeting-container2">
+    <img src="{{ url_for('static', filename='img/character2.png') }}" class="character2-img">
+    <div class="speech-bubble2">
+        管理者ログイン
+    </div>
+</div>
+
 <form method="post">
 
     {% if error %}

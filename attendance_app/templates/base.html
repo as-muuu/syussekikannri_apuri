@@ -9,7 +9,8 @@
 </head>
 <body>
 
-<!-- ✅ 共通ヘッダー -->
+<!-- ✅ 共通ヘッダー（非表示にできる） -->
+{% if not hide_header %}
 <header class="custom-header">
     <div class="header-container">
         <div class="header-left">
@@ -25,6 +26,7 @@
     </div>
     <div class="orange-bar"></div>
 </header>
+{% endif %}
 
 <!-- ✅ ページごとの内容 -->
 <main>
