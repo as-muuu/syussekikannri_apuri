@@ -54,26 +54,37 @@
 ##  ディレクトリ構成
 
 ```plaintext
-attendance_app/
+attendance_app/                # アプリ全体のルートディレクトリ
 │
-├── app.py                      # Flask本体（ルーティング・処理）
-├── data/                       # データ保存用フォルダ
-│   ├── records.csv             # 出欠・遅刻連絡データ
-│   └── users.csv               # ユーザー登録データ
+├── app.py                     # Flaskアプリ本体（ルーティングと処理）
 │
-├── templates/                  # HTMLテンプレート格納場所
-│   ├── index.html              # トップページ（連絡フォーム）
-│   ├── complete.html           # フォーム送信完了ページ
-│   ├── login.html              # ログイン画面
-│   ├── register.html           # 新規ユーザー登録フォーム
-│   ├── users.html              # ユーザー一覧（職員/利用者分け表示）
-│   ├── admin.html              # 管理者用画面（月別に分類表示）
-│   └── unauthorized.html       # 権限エラー時の警告表示ページ
+├── data/                      # CSVデータ保存用フォルダ
+│   ├── records.csv            # 出欠・遅刻連絡の記録データ
+│   └── users.csv              # 登録されたユーザー情報（職員/利用者）
 │
-└── static/                     # CSSや画像など
-    └── style.css
+├── templates/                 # HTMLテンプレート（画面表示用ファイル群）
+│   ├── index.html             # トップページ（出欠連絡フォーム）
+│   ├── complete.html          # 送信完了ページ（確認メッセージ）
+│   ├── login.html             # 管理者ログイン画面
+│   ├── register.html          # 新規ユーザー登録ページ（管理者専用）
+│   ├── users.html             # ユーザー一覧（職員・利用者の表示）
+│   ├── admin.html             # 管理者画面（月別に出欠データ表示）
+│   ├── header.html            # 共通ヘッダー（※使用中でなければ削除可能）
+│   ├── base.html              # 全ページの共通レイアウトテンプレート
+│   └── unauthorized.html      # 権限エラー画面（Zで始まらないIDのアクセス防止）
+│
+└── static/                    # 静的ファイル（CSS・画像など）
+    ├── style.css              # 全体のデザイン・レイアウト設定ファイル
+    └── img/                   # 画像フォルダ（ロゴやキャラクター画像など）
+        ├── logo.png
+        ├── character.png
+        └── character2.png
+
 ```
 
 
 ## 画面遷移図(Canva)作成
 https://www.canva.com/design/DAGmFQtV5F0/vDOIM7uH5y3TbGOtKqVNNw/edit?utm_content=DAGmFQtV5F0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+## ポートフォリオスライド
+https://docs.google.com/presentation/d/1bdWZzwavAAxbVttNhB6_PddmIYvFaz7jzRW98lgsvOc/edit?usp=sharing
